@@ -27,6 +27,9 @@ public class Data extends BaseEntity {
 	private LocalTime breakTo;
 	private String annotation;
 
+	public Data() {
+	}
+
 	public Data(int userId, LocalDateTime date, LocalTime shiftStart, LocalTime shiftEnd, LocalTime breakFrom, LocalTime breakTo, String annotation) {
 		this.userId = userId;
 		this.date = date;

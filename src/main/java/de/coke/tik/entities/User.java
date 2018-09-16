@@ -17,6 +17,9 @@ public class User extends BaseEntity {
 	private double wage;
 	private boolean isAdmin;
 
+	public User() {
+	}
+
 	public User(String firstName, String lastName, String email, String password, String position, int hoursPerWeek, double wage, boolean isAdmin) {
 		this.firstName = firstName;
 		this.lastName = lastName;

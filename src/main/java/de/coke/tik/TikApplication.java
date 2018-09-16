@@ -16,22 +16,26 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TikApplication {
 
 	@Value("${database.host}")
-	private static String databaseHost;
+	private String databaseHost;
 
 	@Value("${database.name}")
-	private static String databaseName;
+	private String databaseName;
 
 	@Value("${database.user}")
-	private static String databaseUser;
+	private String databaseUser;
 
 	@Value("${database.password}")
-	private static String databasePassword;
+	private String databasePassword;
+
+	public TikApplication() {
+
+	}
 
 	public static void main(String[] args) {
-		SystemParameter.HOST = databaseHost;
-		SystemParameter.DATABASE = databaseName;
-		SystemParameter.USERNAME = databaseUser;
-		SystemParameter.PASSWORD = databasePassword;
+		SystemParameter.HOST = "192.168.1.6";
+		SystemParameter.DATABASE = "Tik";
+		SystemParameter.USERNAME = "tikuser";
+		SystemParameter.PASSWORD = "grafisch";
 		SystemParameter.DATABASE_TYPE = DatabaseTypes.MYSQL;
 		SystemParameter.PORT = 3306;
 
