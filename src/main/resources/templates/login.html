@@ -10,6 +10,7 @@
 
     <!-- Fonts -->
     <link th:href="@{/fonts/inter/inter-ui.css}" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSS -->
     <link th:href="@{/css/normalise.min.css}" type="text/css" rel="stylesheet">
@@ -35,9 +36,10 @@
 
         <div id="login__form">
             <form method="post" action="#">
-                <div th:if="${invalid}">
-                    Ungültiger Benutzername oder ungültiges Passwort
+                <div th:if="${invalid}" id="login__invalid">
+                    <i class="material-icons">warning</i> Ungültige Eingabe!
                 </div>
+
                 <div class="login__input">
                     <label for="email">E-Mail</label>
                     <input placeholder="name@grafisch.hamburg" id="email" type="email" name="email"
