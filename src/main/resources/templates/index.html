@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Tik - Zeitverwaltung</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-<h1 class="heading">
-
-</h1>
+<div th:if="${user.isAdmin()}">
+    <span th:text="${user.getFirstName()}"> ist ein Admin</span>
+</div>
+<div th:unless="${user.isAdmin()}">
+    <span th:text="${user.getFirstName()}"> ist kein Admin</span>
+</div>
 </body>
 </html>

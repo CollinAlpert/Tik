@@ -35,6 +35,9 @@
 
         <div id="login__form">
             <form method="post" action="#">
+                <div th:if="${invalid}">
+                    Ungültiger Benutzername oder ungültiges Passwort
+                </div>
                 <div class="login__input">
                     <label for="email">E-Mail</label>
                     <input placeholder="name@grafisch.hamburg" id="email" type="email" name="email"
