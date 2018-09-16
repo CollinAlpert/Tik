@@ -1,0 +1,20 @@
+{
+    "name": "Tik",
+    "short_name": "Tik",
+    "icons": [
+        {
+            "src": "http://grafisch-hamburg.de/tik/img/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "http://grafisch-hamburg.de/tik/img/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#2f3f8a",
+    "background_color": "#2f3f8a",
+    "start_url": "http://grafisch-hamburg.de/tik",
+    "display": "standalone"
+}

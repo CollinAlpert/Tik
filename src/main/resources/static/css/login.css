@@ -1,0 +1,51 @@
+body {
+    background-image: linear-gradient(135deg, #43CBFF 10%, #9708CC 100%);
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.container h1 {
+    color: #fff;
+    font-weight: 700;
+}
+
+#login {
+    height: 50rem;
+    margin-top: calc(50% - 25rem);
+}
+
+#login__clock {
+    height: 10rem;
+}
+
+#login__inputs {
+    margin-top: 5rem;
+}
+
+#login__inputs label {
+    color: #fff;
+    font-weight: 500;
+}
+
+#login__inputs input {
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #fff;
+    color: #fff;
+    background: rgba(255, 255, 255, 0);
+}
+
+#login__inputs button {
+    margin: 2rem 0;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #fff;
+    transition: all 0.25s ease;
+}
+
+#login__inputs button:hover {
+    background: #fff;
+    color: rgb(47, 63, 138);
+}

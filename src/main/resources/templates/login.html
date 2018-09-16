@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="UTF-8">
+    <title>Tik – Login</title>
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Fonts -->
+    <link th:href="@{/fonts/inter/inter-ui.css}" type="text/css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link th:href="@{/css/normalise.min.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/skeleton.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/main.min.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/login.min.css}" type="text/css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="http://grafisch-hamburg.de/tik/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://grafisch-hamburg.de/tik/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://grafisch-hamburg.de/tik/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="http://grafisch-hamburg.de/tik/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="http://grafisch-hamburg.de/tik/img/favicon/safari-pinned-tab.svg" color="#2f3f8a">
+    <link rel="shortcut icon" href="http://grafisch-hamburg.de/tik/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2f3f8a">
+    <meta name="msapplication-config" content="http://grafisch-hamburg.de/tik/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#2f3f8a">
+</head>
+<body>
+<div class="container">
+    <div id="login">
+        <img src="#" th:src="@{/img/clock_symbol_white.svg}" alt="Tik" id="login__clock">
+
+        <div id="login__inputs">
+            <form method="post" action="#">
+                <label for="email">E-Mail</label>
+                <input placeholder="name@grafisch.hamburg" id="email" type="email" name="email"
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <label for="password">Passwort</label>
+                <input placeholder="•••••" id="password" type="password" name="password">
+                <br>
+                <button type="submit" class="button-primary" id="login-button">Login</button>
+                <br>
+                <a href="#">Passwort vergessen?</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
