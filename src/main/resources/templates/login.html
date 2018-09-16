@@ -13,7 +13,7 @@
 
     <!-- CSS -->
     <link th:href="@{/css/normalise.min.css}" type="text/css" rel="stylesheet">
-    <link th:href="@{/css/skeleton.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/css/skeleton.min.css}" type="text/css" rel="stylesheet">
     <link th:href="@{/css/main.min.css}" type="text/css" rel="stylesheet">
     <link th:href="@{/css/login.min.css}" type="text/css" rel="stylesheet">
 
@@ -33,17 +33,22 @@
     <div id="login">
         <img src="#" th:src="@{/img/clock_symbol_white.svg}" alt="Tik" id="login__clock">
 
-        <div id="login__inputs">
+        <div id="login__form">
             <form method="post" action="#">
-                <label for="email">E-Mail</label>
-                <input placeholder="name@grafisch.hamburg" id="email" type="email" name="email"
-                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                <label for="password">Passwort</label>
-                <input placeholder="•••••" id="password" type="password" name="password">
+                <div class="login__input">
+                    <label for="email">E-Mail</label>
+                    <input placeholder="name@grafisch.hamburg" id="email" type="email" name="email"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                </div>
+
+                <div class="login__input">
+                    <label for="password">Passwort</label>
+                    <input placeholder="•••••" id="password" type="password" name="password">
+                </div>
+
+                <button type="submit" class="button-primary" id="login__button">Einloggen</button>
                 <br>
-                <button type="submit" class="button-primary" id="login-button">Login</button>
-                <br>
-                <a href="#">Passwort vergessen?</a>
+                <a href="#" id="login__pwd-reset">Passwort vergessen?</a>
             </form>
         </div>
     </div>
