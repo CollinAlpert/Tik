@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -17,23 +18,7 @@ import java.security.NoSuchAlgorithmException;
 @Controller
 public class LoginController {
 
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
-
-	@PostMapping("/login")
-	public String login(@RequestParam String email, @RequestParam String password, Model model) {
-		var userOptional = IoC.resolveService(UserService.class).getUser(email, hash(password));
-		if (!userOptional.isPresent()) {
-			model.addAttribute("invalid", true);
-			return "login";
-		}
-		model.addAttribute("user", userOptional.get());
-		return "index";
-	}
-
-	private String hash(String password) {
+	private static String hash(String password) {
 		try {
 			var md = MessageDigest.getInstance("MD5");
 			md.update(password.getBytes());
@@ -46,5 +31,21 @@ public class LoginController {
 		} catch (NoSuchAlgorithmException e) {
 			return "";
 		}
+	}
+
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+
+	@PostMapping("/login")
+	public String login(@RequestParam String email, @RequestParam String password, Model model, HttpSession session) {
+		var userOptional = IoC.resolveService(UserService.class).getUser(email, hash(password));
+		if (!userOptional.isPresent()) {
+			model.addAttribute("invalid", true);
+			return "login";
+		}
+		session.setAttribute("user", userOptional.get());
+		return "redirect:/";
 	}
 }

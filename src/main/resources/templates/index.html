@@ -5,11 +5,11 @@
     <title>Tik - Zeitverwaltung</title>
 </head>
 <body>
-<div th:if="${user.isAdmin()}">
-    <span th:text="${user.getFirstName()}"> ist ein Admin</span>
+<div th:if="${session.user.isAdmin()}">
+    <span th:text="${session.user.getFirstName()} + ' ist ein Admin'" th:unless="${session.user == null}"></span>
 </div>
-<div th:unless="${user.isAdmin()}">
-    <span th:text="${user.getFirstName()}"> ist kein Admin</span>
+<div th:unless="${session.user.isAdmin()}">
+    <span th:text="${session.user.getFirstName()} + ' ist kein Admin'" th:unless="${session.user == null}"></span>
 </div>
 </body>
 </html>
