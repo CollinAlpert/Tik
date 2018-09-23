@@ -4,6 +4,7 @@ import com.github.collinalpert.java2db.database.ForeignKey;
 import com.github.collinalpert.java2db.database.ForeignKeyObject;
 import com.github.collinalpert.java2db.database.TableName;
 import com.github.collinalpert.java2db.entities.BaseEntity;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -15,36 +16,33 @@ import java.time.LocalTime;
 public class Data extends BaseEntity {
 
 	@ForeignKey(1)
-	private int userId;
+	private long userId;
 
 	@ForeignKeyObject(1)
 	private User user;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime date;
+
+	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime shiftStart;
+
+	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime shiftEnd;
+
+	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime breakFrom;
+
+	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime breakTo;
+
 	private String annotation;
 
-	public Data() {
-	}
-
-	public Data(int userId, LocalDateTime date, LocalTime shiftStart, LocalTime shiftEnd, LocalTime breakFrom, LocalTime breakTo, String annotation) {
-		this.userId = userId;
-		this.date = date;
-		this.shiftStart = shiftStart;
-		this.shiftEnd = shiftEnd;
-		this.breakFrom = breakFrom;
-		this.breakTo = breakTo;
-		this.annotation = annotation;
-	}
-
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 

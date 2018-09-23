@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Eintrag</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="http://grafisch-hamburg.de/tik/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://grafisch-hamburg.de/tik/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://grafisch-hamburg.de/tik/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="http://grafisch-hamburg.de/tik/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="http://grafisch-hamburg.de/tik/img/favicon/safari-pinned-tab.svg" color="#2f3f8a">
+    <link rel="shortcut icon" href="http://grafisch-hamburg.de/tik/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2f3f8a">
+    <meta name="msapplication-config" content="http://grafisch-hamburg.de/tik/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#2f3f8a">
+</head>
+<body>
+<form action="#" th:action="@{/data/save}" th:object="${data}">
+    <input type="hidden" th:field="*{id}">
+    <input type="hidden" th:field="*{userId}">
+
+    <input type="date" th:field="*{date}" th:disabled="${entityDisplayType.name() eq 'VIEW'}">
+    <input type="time" th:field="*{shiftStart}" th:disabled="${entityDisplayType.name() eq 'VIEW'}">
+    <input type="time" th:field="*{shiftEnd}" th:disabled="${entityDisplayType.name() eq 'VIEW'}">
+    <input type="time" th:field="*{breakFrom}" th:disabled="${entityDisplayType.name() eq 'VIEW'}">
+    <input type="time" th:field="*{breakTo}" th:disabled="${entityDisplayType.name() eq 'VIEW'}">
+    <input type="text" th:field="*{annotation}" th:disabled="${entityDisplayType.name() eq 'VIEW'}">
+</form>
+</body>
+</html>
