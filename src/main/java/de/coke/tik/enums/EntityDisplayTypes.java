@@ -1,4 +1,4 @@
-package de.coke.tik.controllers.enums;
+package de.coke.tik.enums;
 
 /**
  * @author Collin Alpert

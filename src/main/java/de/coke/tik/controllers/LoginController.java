@@ -20,7 +20,7 @@ public class LoginController {
 
 	private static String hash(String password) {
 		try {
-			var md = MessageDigest.getInstance("MD5");
+			var md = MessageDigest.getInstance("SHA-256");
 			md.update(password.getBytes());
 			byte[] bytes = md.digest();
 			var sb = new StringBuilder();

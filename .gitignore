@@ -5,6 +5,4 @@
 .idea
 mvnw
 src/main/resources/application.properties
-Tik.iml
-src/main/resources/static/node_modules
-src/main/resources/static/package-lock.json
+src/test/

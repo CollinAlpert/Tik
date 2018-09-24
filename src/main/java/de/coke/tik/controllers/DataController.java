@@ -1,9 +1,9 @@
 package de.coke.tik.controllers;
 
 import com.github.collinalpert.java2db.utilities.IoC;
-import de.coke.tik.controllers.enums.EntityDisplayTypes;
 import de.coke.tik.entities.Data;
 import de.coke.tik.entities.User;
+import de.coke.tik.enums.EntityDisplayTypes;
 import de.coke.tik.services.DataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +38,11 @@ public class DataController {
 		return handleData(id, model, session, EntityDisplayTypes.EDIT);
 	}
 
+	@PostMapping("/data/delete/{id}")
+	public String deleteData(@PathVariable long id, HttpSession session) {
+		return handleData(id, null, session, EntityDisplayTypes.DELETE);
+	}
+
 	private String handleData(long id, Model model, HttpSession session, EntityDisplayTypes displayType) {
 		if (session.getAttribute("user") == null) {
 			return "redirect:/login";
@@ -45,7 +50,11 @@ public class DataController {
 		var user = (User) session.getAttribute("user");
 		var service = IoC.resolveService(DataService.class);
 		var data = service.getById(id);
-		if (!data.isPresent() || data.get().getUserId() != user.getId()) {
+		if (!data.isPresent() || (data.get().getUserId() != user.getId() && !user.isAdmin())) {
+			return "redirect:/";
+		}
+		if (displayType == EntityDisplayTypes.DELETE) {
+			service.delete(data.get());
 			return "redirect:/";
 		}
 		model.addAttribute("data", data);
@@ -67,5 +76,4 @@ public class DataController {
 		}
 		return "redirect:/";
 	}
-
 }
