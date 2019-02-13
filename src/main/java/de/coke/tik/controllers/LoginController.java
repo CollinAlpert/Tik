@@ -9,29 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * @author Collin Alpert
  */
 @Controller
-public class LoginController {
+public class LoginController extends BaseController {
 
-	private static String hash(String password) {
-		try {
-			var md = MessageDigest.getInstance("SHA-256");
-			md.update(password.getBytes());
-			byte[] bytes = md.digest();
-			var sb = new StringBuilder();
-			for (byte aByte : bytes) {
-				sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
-			}
-			return sb.toString();
-		} catch (NoSuchAlgorithmException e) {
-			return "";
-		}
-	}
 
 	@GetMapping("/login")
 	public String login() {
@@ -45,6 +29,7 @@ public class LoginController {
 			model.addAttribute("invalid", true);
 			return "login";
 		}
+
 		session.setAttribute("user", userOptional.get());
 		return "redirect:/";
 	}
