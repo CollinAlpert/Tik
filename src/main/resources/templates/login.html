@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
-    <link th:href="@{/fonts/inter/inter-ui.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/fonts/inter/inter.css}" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSS -->
@@ -32,9 +32,8 @@
 <body>
 <div class="container">
     <div id="login">
-        <img src="#" th:src="@{/img/clock_symbol_white.svg}" alt="Tik" id="login__clock">
-
         <div id="login__form">
+            <img src="#" th:src="@{/img/clock_symbol_white.svg}" alt="Tik" id="login__clock">
             <form method="post" action="#">
                 <div th:if="${invalid}" id="login__invalid">
                     <i class="material-icons">warning</i> Ungültige Eingabe!

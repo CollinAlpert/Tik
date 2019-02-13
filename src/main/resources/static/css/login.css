@@ -1,38 +1,18 @@
-/*
-# Background colours from darker to lighter
-Blue-grey 1: #202225 Top-level sidebar, background for html
-Blue-grey 2: #2a2c31 Top-level sidebar sections
-Blue-grey 3: #2f3136 Second-level sidebar, menus
-Blue-grey 4: #36393f Main content
-Blue-grey 5: #484b51 Main content highlight
-Blue-grey 6: #7e8084 Icons ins highlight
-
-# Icon colour
-white-grey: #a9aaac
-
-# Fonts
-Primary: #ffffff
-Secondary: #696a6e
-
-Warning message: #f04747
-
-
- */
-
-
 body {
-    background: #202225;
     overflow: hidden;
 }
 
 #login {
-    height: 50rem;
-    margin-top: calc(50% - 30rem);
+    height: 100vh;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #login__clock {
     height: 10rem;
+    margin-bottom: 5rem;
 }
 
 #login__form {
