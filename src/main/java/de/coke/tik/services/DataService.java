@@ -7,7 +7,5 @@ import de.coke.tik.entities.Data;
  * @author Collin Alpert
  */
 public class DataService extends BaseService<Data> {
-	public DataService() {
-		super(Data.class);
-	}
+
 }

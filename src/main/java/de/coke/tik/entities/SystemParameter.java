@@ -1,6 +1,6 @@
 package de.coke.tik.entities;
 
-import com.github.collinalpert.java2db.database.TableName;
+import com.github.collinalpert.java2db.annotations.TableName;
 import com.github.collinalpert.java2db.entities.BaseCodeAndDescriptionEntity;
 
 /**

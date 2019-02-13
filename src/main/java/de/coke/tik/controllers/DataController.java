@@ -47,22 +47,29 @@ public class DataController {
 		if (session.getAttribute("user") == null) {
 			return "redirect:/login";
 		}
+
 		var user = (User) session.getAttribute("user");
 		var service = IoC.resolveService(DataService.class);
 		var data = service.getById(id);
 		if (!data.isPresent() || (data.get().getUserId() != user.getId() && !user.isAdmin())) {
 			return "redirect:/";
 		}
+
 		if (displayType == EntityDisplayTypes.DELETE) {
-			service.delete(data.get());
-			return "redirect:/";
+			try {
+				service.delete(data.get());
+				return "redirect:/";
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
+
 		model.addAttribute("data", data);
 		model.addAttribute("entityDisplayType", displayType);
 		return "dataTemplate";
 	}
 
-	@PostMapping("save")
+	@PostMapping("/data/save")
 	public String save(@ModelAttribute("data") Data data) {
 		var service = IoC.resolveService(DataService.class);
 		try {

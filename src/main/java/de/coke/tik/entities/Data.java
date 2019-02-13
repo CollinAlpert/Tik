@@ -1,8 +1,7 @@
 package de.coke.tik.entities;
 
-import com.github.collinalpert.java2db.database.ForeignKey;
-import com.github.collinalpert.java2db.database.ForeignKeyObject;
-import com.github.collinalpert.java2db.database.TableName;
+import com.github.collinalpert.java2db.annotations.ForeignKeyEntity;
+import com.github.collinalpert.java2db.annotations.TableName;
 import com.github.collinalpert.java2db.entities.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,10 +14,9 @@ import java.time.LocalTime;
 @TableName("data")
 public class Data extends BaseEntity {
 
-	@ForeignKey(1)
 	private long userId;
 
-	@ForeignKeyObject(1)
+	@ForeignKeyEntity("userId")
 	private User user;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")

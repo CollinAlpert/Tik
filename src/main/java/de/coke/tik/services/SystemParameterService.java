@@ -7,7 +7,4 @@ import de.coke.tik.entities.SystemParameter;
  * @author Collin Alpert
  */
 public class SystemParameterService extends BaseCodeAndDescriptionService<SystemParameter> {
-	public SystemParameterService() {
-		super(SystemParameter.class);
-	}
 }

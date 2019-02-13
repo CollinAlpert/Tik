@@ -16,7 +16,7 @@
     <meta name="theme-color" content="#2f3f8a">
 </head>
 <body>
-<form action="#" th:action="@{/data/save}" th:object="${data}">
+<form action="#" method="post" th:action="@{/data/save}" th:object="${data}">
     <input type="hidden" th:field="*{id}">
     <input type="hidden" th:field="*{userId}">
 

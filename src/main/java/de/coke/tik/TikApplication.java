@@ -1,7 +1,6 @@
 package de.coke.tik;
 
 import com.github.collinalpert.java2db.database.DBConnection;
-import com.github.collinalpert.java2db.database.DatabaseTypes;
 import com.github.collinalpert.java2db.utilities.IoC;
 import de.coke.tik.entities.Data;
 import de.coke.tik.entities.SystemParameter;
@@ -19,8 +18,7 @@ public class TikApplication {
 
 	public static void main(String[] args) {
 		var context = SpringApplication.run(TikApplication.class, args);
-		var instance = context.getBean(Instance.class);
-		instance.initialize();
+		context.getBean(Instance.class).initialize();
 	}
 
 	@Bean
@@ -47,7 +45,6 @@ public class TikApplication {
 			DBConnection.DATABASE = databaseName;
 			DBConnection.USERNAME = databaseUser;
 			DBConnection.PASSWORD = databasePassword;
-			DBConnection.DATABASE_TYPE = DatabaseTypes.MYSQL;
 			DBConnection.PORT = 3306;
 
 			IoC.registerService(Data.class, new DataService());

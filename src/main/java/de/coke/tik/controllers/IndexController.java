@@ -18,8 +18,10 @@ public class IndexController {
 		if (session.getAttribute("user") == null) {
 			return "redirect:/login";
 		}
+
 		var user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
+
 		return "index";
 	}
 }

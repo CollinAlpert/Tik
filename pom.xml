@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.github.collinalpert</groupId>
             <artifactId>java2db</artifactId>
-            <version>2.0</version>
+            <version>3.3</version>
         </dependency>
 
         <dependency>
